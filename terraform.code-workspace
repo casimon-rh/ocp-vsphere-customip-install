@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "./terraform"
+		}
+	],
+	"settings": {
+		"editor.tabSize": 2,
+		"files.exclude": {
+			".terraform/": true
+		},
+		"editor.wordWrap": "on"
+	},
+	"extensions": {
+		"recommendations": [
+			"hashicorp.terraform",
+			"yzhang.markdown-all-in-one"
+		]
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"folders": [
+		{
+			"path": "./selenium"
+		}
+	],
+	"settings": {
+		"editor.tabSize": 2,
+		"python.pythonPath": "./local-venv/bin/python3.7",
+		"files.exclude": {
+			"__pycache__": true
+		}
+	},
+	"launch": {
+		"configurations": [
+			{
+				"name": "Python: Current File",
+				"type": "python",
+				"request": "launch",
+				"program": "${file}",
+				"console": "integratedTerminal"
+			}
+		]
+	},
+	"extensions": {
+		"recommendations": [
+			"yzhang.markdown-all-in-one",
+			"ms-python.python",
+			"aaron-bond.better-comments",
+			"oderwat.indent-rainbow"
+		]
+	}
+}
