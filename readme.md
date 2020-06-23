@@ -2,17 +2,17 @@
 
 ## Intro
 
-Based on the [Installer] User Provided Infraestructure (UPI) repo for VMWare, and following the [Blog Post] it install a minimal, parametrizable cluster with role based resource and naming and automatic kernel parametrization.
+Based on the [Installer](https://github.com/openshift/installer) User Provided Infraestructure (UPI) repo for VMWare, and following the [Blog Post](https://www.openshift.com/blog/openshift-4-2-vsphere-install-with-static-ips) it install a minimal, parametrizable cluster with role based resource and naming and automatic kernel parametrization.
 
 ## Environment 🌲
 
 The following playbooks and scripts were tested on the following versions for this technologies:
 
-* [VMWare® VSphere® 6.7]
-* [Red Hat CoreOS iso installer 4.3.8]
-* [Red Hat CoreOS BIOS metal 4.3.8]
-* [Terraform 0.12]
-* [Python 3.6]
+* [VMWare® VSphere® 6.7](https://my.vmware.com/en/web/vmware/downloads/info/slug/datacenter_cloud_infrastructure/vmware_vsphere/6_7)
+* [Red Hat CoreOS iso installer 4.3.8](https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.3/latest/rhcos-4.3.8-x86_64-installer.x86_64.iso)
+* [Red Hat CoreOS BIOS metal 4.3.8](https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.3/latest/rhcos-4.3.8-x86_64-metal.x86_64.raw.gz)
+* [Terraform 0.12](https://www.terraform.io/downloads.html)
+* [Python 3.6](https://www.python.org/downloads/release/python-360/)
 
 ## Content 🍱
 
@@ -108,7 +108,7 @@ python main.py #...
 
 ## Pre-requisites ✅
 
-As described in the [UPI Installation Guide], the default settings cover the minimal resource requirements of compute. You need to provision externally the load balancers and the dns requirements. As well as prepare the ignition scripts with the _openshift-install_ binary and expose them on a http server cluster-wide available.
+As described in the [UPI Installation Guide](https://github.com/openshift/installer/blob/master/docs/user/vsphere/install_upi.md), the default settings cover the minimal resource requirements of compute. You need to provision externally the load balancers and the dns requirements. As well as prepare the ignition scripts with the _openshift-install_ binary and expose them on a http server cluster-wide available.
 
 ## Improvements "To be done" 📝
 
@@ -121,14 +121,4 @@ As described in the [UPI Installation Guide], the default settings cover the min
 
 ## Best with 💫
 
-🎀 [VSCode]
-
-[Installer]:(https://github.com/openshift/installer)
-[Blog Post]:(https://www.openshift.com/blog/openshift-4-2-vsphere-install-with-static-ips)
-[VMWare® VSphere® 6.7]:(https://my.vmware.com/en/web/vmware/downloads/info/slug/datacenter_cloud_infrastructure/vmware_vsphere/6_7)
-[Red Hat CoreOS iso installer 4.3.8]:(https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.3/latest/rhcos-4.3.8-x86_64-installer.x86_64.iso)
-[Red Hat CoreOS BIOS metal 4.3.8]:(https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.3/latest/rhcos-4.3.8-x86_64-metal.x86_64.raw.gz)
-[Terraform 0.12]:(https://www.terraform.io/downloads.html)
-[Python 3.6]:(https://www.python.org/downloads/release/python-360/)
-[UPI Installation Guide]:(https://github.com/openshift/installer/blob/master/docs/user/vsphere/install_upi.md)
-[VSCode]:(https://code.visualstudio.com/)
+[VSCode](https://code.visualstudio.com/) 🎀
