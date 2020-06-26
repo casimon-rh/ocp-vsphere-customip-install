@@ -15,13 +15,13 @@ def main():
         description="Send RHCOS Install params to VMWare® Vsphere® 6.7 with Selenium.")
     parser.add_argument('-w', '--webdriver-dir',
                         help='Webdriver Folder', default='', dest='webdriver')
-    parser.add_argument('-vu', '--vsphere-url',
+    parser.add_argument('-s', '--vsphere-url',
                         help='VMWare VSphere URL', default='', dest='vsphereurl')
     parser.add_argument(
         '-u', '--username', help='VMWare VSphere user', default='', dest='username')
     parser.add_argument(
-        '-p', '--password', help='VMWare Vsphere password', default='', dest='pass')
-    parser.add_argument('-gw', '--gateway', help='IP Gateway',
+        '-p', '--password', help='VMWare Vsphere password', default='', dest='password')
+    parser.add_argument('-g', '--gateway', help='IP Gateway',
                         default='', dest='gateway')
     parser.add_argument('-d', '--dns', help='DNS Server',
                         default='', dest='dns')
@@ -33,9 +33,9 @@ def main():
                         default='ocp.client.com', dest='baseurl')
     parser.add_argument('-i', '--image-url',
                         help='Install Image URL', default='', dest='imageurl')
-    parser.add_argument('-ig', '--ignition-url',
+    parser.add_argument('-l', '--ignition-url',
                         help='Install Ignition URL', default='', dest='ignitionurl')
-    parser.add_argument('-s', '--servers-file',
+    parser.add_argument('-f', '--servers-file',
                         help='Servers csv file', default='servers.csv', dest='serversfile')
 
     args = parser.parse_args()
@@ -58,6 +58,7 @@ def main():
     # TODO: search folder instead of first!
     ocpdir = group.find_elements_by_xpath(
         'li/ul[@class="k-group"]/li/ul/li')[1]
+    time.sleep(2)
     ocpdir.find_element_by_xpath('div/span[contains(@class,"k-plus")]').click()
     vms = ocpdir.find_elements_by_xpath('ul/li')
     vm_include = []
@@ -67,22 +68,24 @@ def main():
     with open(args.serversfile, newline='') as csvfile:
         lines = csv.reader(csvfile)
         for line in lines:
-            vm_include.append(lines[0])
+            vm_include.append(line[0])
             formmap = {
-                'ip': lines[2],
+                'ip': line[2],
                 'gw': args.gateway,
                 'msk': args.mask,
-                'h': lines[1],
+                'h': line[1],
                 'base': args.baseurl,
                 'dns': args.dns,
+                'net': args.networkinterface,
                 'img': args.imageurl,
-                'ign': args.ignitionurl
+                'ign': args.ignitionurl,
+                'ignrole': line[3]
             }
-            boot_texts.append({lines[0]: "ip={ip}::{gw}:{msk}:{h}{base}:{dns}:none nameserver={dns} ".format_map(
-                **formmap
-            ) + "coreos.inst.install_dev=sda coreos.inst.image_url={img} coreos.inst.ignition_url={ign}".format_map(
-                **formmap
-            )})
+            boot_texts[line[0]] = " ip={ip}::{gw}:{msk}:{h}{base}:{net}:none nameserver={dns} ".format_map(
+                formmap
+            ) + "coreos.inst.install_dev=sda coreos.inst.image_url={img} coreos.inst.ignition_url={ign}{ignrole}".format_map(
+                formmap
+            )
     # TODO: same loop?
     for vm in vms:
         vm_name = vm.find_element_by_xpath("div/span").text

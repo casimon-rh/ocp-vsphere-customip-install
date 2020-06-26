@@ -18,7 +18,33 @@
 				"type": "python",
 				"request": "launch",
 				"program": "${file}",
-				"console": "integratedTerminal"
+				"console": "integratedTerminal",
+				"args": [
+					"-w",
+					"~/ocp-vsphere-customip-install/selenium",
+					"-s",
+					"https://vsphere.client.com",
+					"-u",
+					"admin",
+					"-p",
+					"pass",
+					"-g",
+					"192.168.0.254",
+					"-d",
+					"192.168.0.123",
+					"-n",
+					"ens192",
+					"-m",
+					"255.255.248.0",
+					"-b",
+					".ocp.client.com",
+					"-i",
+					"http://192.168.2.101/bios.raw.gz",
+					"-l",
+					"http://192.168.2.101/ignition/",
+					"-f",
+					"servers.csv"
+				]
 			}
 		]
 	},
