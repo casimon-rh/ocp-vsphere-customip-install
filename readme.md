@@ -77,7 +77,7 @@ Short Flag | Long Flag | Description
 -n | --network-interface | Default Network Interface
 -b | --base-url | FQDN base url
 -i | --image-url | Install Image URL
--ig | --ignition-url | Install Ignition URL
+-ig | --ignition-url | Install Ignition Base URL
 -s | --servers-file | Servers csv file
 
 It also needs a csv file describing the created vms with the following headers:
@@ -85,15 +85,16 @@ It also needs a csv file describing the created vms with the following headers:
 * Virtual Machine Name
 * FQDN name
 * IP
+* Ignition file name (per initial role)
 
 ```csv
-ocp_boots1_2,boots1,192.168.0.2
-ocp_ctr1_3,ctr1,192.168.0.3
-ocp_ctr2_4,ctr2,192.168.0.4
-ocp_ctr3_5,ctr3,192.168.0.5
-ocp_app1_6,app1,192.168.0.6
-ocp_app2_7,app2,192.168.0.7
-ocp_app3_9,app3,192.168.0.9
+ocp_boots1_2,boots1,192.168.0.2,append-bootstrap.ign
+ocp_ctr1_3,ctr1,192.168.0.3,master.ign
+ocp_ctr2_4,ctr2,192.168.0.4,master.ign
+ocp_ctr3_5,ctr3,192.168.0.5,master.ign
+ocp_app1_6,app1,192.168.0.6,worker.ign
+ocp_app2_7,app2,192.168.0.7,worker.ign
+ocp_app3_9,app3,192.168.0.9,worker.ign
 ```
 #### Steps: 🚶‍♂️
 
