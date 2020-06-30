@@ -68,17 +68,17 @@ The bot builds the string and sends it char by char. The following parameters ar
 Short Flag | Long Flag | Description
 --- | --- | ---
 -w | --webdriver-dir | Webdriver Folder
--vu | --vsphere-url | VMWare VSphere URL
+-s | --vsphere-url | VMWare VSphere URL
 -u | --username | VMWare VSphere user
 -p | --password | VMWare Vsphere password
--gw | --gateway | IP Gateway
+-g | --gateway | IP Gateway
 -d | --dns | DNS Server
 -m | --mask | Network Mask
 -n | --network-interface | Default Network Interface
 -b | --base-url | FQDN base url
 -i | --image-url | Install Image URL
--ig | --ignition-url | Install Ignition Base URL
--s | --servers-file | Servers csv file
+-l | --ignition-url | Install Ignition Base URL
+-f | --servers-file | Servers csv file
 
 It also needs a csv file describing the created vms with the following headers:
 
